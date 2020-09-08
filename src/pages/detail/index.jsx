@@ -1,10 +1,12 @@
 import React,{useEffect,useState} from 'react';
 import {request,getCurrentInstance} from '@tarojs/taro';
 import _ from 'lodash'
+// import Towxml  from 'towxml'
 import { View,} from '@tarojs/components'
 import './index.scss'
 import {twosum,link,comments} from './data'
 
+// const towxml = new Towxml()
 function Mine() {
   const [dataList, setDataList] = useState(twosum)
   const [info, setInfo] = useState(()=>{
@@ -36,7 +38,10 @@ function Mine() {
         })
       } */}
       <View>{dataList.title}</View>
-      <View>{dataList.body}</View>
+      <View>
+        {/* {towxml.md2wxml(dataList.body)} */}
+        <wemark md={dataList.body} link highlight type='wemark' />
+        </View>
       详细信息
     </View>
 

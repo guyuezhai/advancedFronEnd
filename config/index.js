@@ -14,6 +14,10 @@ const config = {
   },
   copy: {
     patterns: [
+      {
+        from:'src/wemark/wemark',
+        to:'dist/wemark/wemark'
+      }
     ],
     options: {
     }
@@ -40,6 +44,13 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    }
+  },
+  weapp:{
+    compile:{
+      exclude:[
+        'src/wemark/wemark/remarkable.js'
+      ]
     }
   },
   h5: {
