@@ -1,5 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {request,getCurrentInstance} from '@tarojs/taro';
+import { AtCard } from "taro-ui"
+import moment from 'moment'
 import _ from 'lodash'
 // import Towxml  from 'towxml'
 import { View,} from '@tarojs/components'
@@ -12,6 +14,7 @@ function Mine() {
   const [info, setInfo] = useState(()=>{
     return getCurrentInstance().router.params
   })
+
   // useEffect(() => {
   //   if(info.num!==undefined){
   //     request({
@@ -27,6 +30,7 @@ function Mine() {
   //   }
 
   // }, [info])
+  const {created_at,title,body}=dataList
   return (
     <View>
       {/* {
@@ -37,13 +41,16 @@ function Mine() {
           )
         })
       } */}
-      <View>{dataList.title}</View>
-      <View>
-        {/* {towxml.md2wxml(dataList.body)} */}
-        <wemark md={dataList.body} link highlight type='wemark' />
-        </View>
-      详细信息
+         <AtCard
+          note='小Tips'
+          extra={created_at}
+          title={title}
+          thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+        >
+          <wemark md={body} link highlight type='wemark' />
+        </AtCard>
     </View>
+
 
   )
 }

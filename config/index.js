@@ -15,8 +15,8 @@ const config = {
   copy: {
     patterns: [
       {
-        from:'src/wemark/wemark',
-        to:'dist/wemark/wemark'
+        from:'src/wemark',
+        to:'dist/wemark'
       }
     ],
     options: {
@@ -49,7 +49,7 @@ const config = {
   weapp:{
     compile:{
       exclude:[
-        'src/wemark/wemark/remarkable.js'
+        'src/wemark/remarkable.js'
       ]
     }
   },

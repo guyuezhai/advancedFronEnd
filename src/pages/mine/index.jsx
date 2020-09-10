@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {request,navigateTo} from '@tarojs/taro';
 import _ from 'lodash'
 import { View,} from '@tarojs/components'
+import Panel from '../../components/Panel'
 import './index.scss'
 import data from './data'
 function Mine() {
@@ -18,18 +19,18 @@ function Mine() {
   //     }
   //   })
   // }, [])
-  const goToDetail=(num)=>{
-    navigateTo({
-      url: `/pages/detail/index?num=${num}`
-    })
-  }
+
   return (
     <View>
       {
-        _.map(dataList,(o)=>{
-          let {number,title}=o
+        _.map(dataList,(o,i)=>{
           return (
-          <View className="list_item" onClick={()=>goToDetail(number)}> #{number} {title}</View>
+          <Panel
+            data={o}
+            index={i+1}
+          >
+            <wemark md={o.body} link highlight type='wemark' />
+          </Panel>
           )
         })
       }
@@ -37,5 +38,10 @@ function Mine() {
 
   )
 }
-
+Mine.config={
+  navigationBarTitleText: '习题列表',
+  usingComponents:{
+    wemark:'../../wemark/wemark'
+  }
+}
 export default Mine;
