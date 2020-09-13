@@ -1,1 +1,9 @@
 @import "~taro-ui/dist/style/components/card.scss";
+
+.comment-card{
+  margin-bottom: 25px;;
+  .at-card__header-title, .at-card__header-extra{
+    font-size: 25px;
+    color: #888;
+  }
+}

@@ -1,9 +1,12 @@
-@import "~taro-ui/dist/style/components/list.scss";
-@import "~taro-ui/dist/style/components/icon.scss";
-
-.list_item{
-  font-size: medium;
-  margin:0  20px;
-  border: 1px solid #ddd;
-  padding: 20px;
+@import "~taro-ui/dist/style/components/avatar.scss";
+.user{
+  .user-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .name{
+      margin: 30px 0;
+    }
+  }
 }

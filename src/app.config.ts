@@ -1,6 +1,7 @@
 export default {
   pages: [
     'pages/index/index',
+    'pages/list/index',
     'pages/mine/index',
     'pages/post/index',
     'pages/detail/index'
@@ -24,7 +25,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: '前端进阶',
     navigationBarTextStyle: 'black'
   }
 }
