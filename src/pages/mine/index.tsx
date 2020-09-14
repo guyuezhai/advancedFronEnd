@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import {getUserInfo} from '@tarojs/taro';
+import {getUserInfo,getWeRunData} from '@tarojs/taro';
 import { View, Text } from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
 import './index.scss'
@@ -9,6 +9,14 @@ function Post() {
     getUserInfo({
       success: function(res) {
         setUser(res.userInfo)
+      }
+    })
+    getWeRunData({
+      success: function(res) {
+        const encryptedData = res.encryptedData
+        // 或拿 cloudID 通过云调用直接获取开放数据
+        const cloudID = res.cloudID
+        console.log(res)
       }
     })
   }, [])

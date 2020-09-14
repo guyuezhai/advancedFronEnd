@@ -1,2 +1,17 @@
 @import "~taro-ui/dist/style/components/grid.scss";
-@import "~taro-ui/dist/style/components/button.scss"
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/toast.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+.swiper-container{
+  margin: 25px 20px;
+  .swiper{
+    display: flex;
+    justify-content: center;
+    .swiper-image{
+      width:100%;
+      height: 300px;
+      object-fit: contain;
+      // height: 100%;
+    }
+  }
+}
