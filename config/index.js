@@ -1,3 +1,4 @@
+const path = require('path')
 const config = {
   projectName: 'taroapp',
   date: '2020-9-5',
@@ -6,6 +7,9 @@ const config = {
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2
+  },
+  alias:{
+    '@/components':path.resolve(__dirname,'..','src/components'),
   },
   sourceRoot: 'src',
   outputRoot: 'dist',

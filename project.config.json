@@ -33,5 +33,22 @@
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/components/*": [
+				"./src/components/*"
+			],
+			"@/utils/*": [
+				"./src/utils/*"
+			],
+			"@/package": [
+				"./package.json"
+			],
+			"@/project": [
+				"./project.config.json"
+			]
+		}
+	},
 	"condition": {}
 }

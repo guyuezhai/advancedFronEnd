@@ -2,17 +2,20 @@ import React,{useEffect,useState} from 'react';
 import {request,getCurrentInstance} from '@tarojs/taro';
 import { AtCard,AtAvatar} from "taro-ui"
 import moment from 'moment'
+import 'moment/locale/zh-cn'
 import _ from 'lodash'
 // import Towxml  from 'towxml'
 import { View,} from '@tarojs/components'
-import api from '../../api'
+import {api ,header}from '../../api'
 import './index.scss'
-import {twosum,link,comments} from './data'
+// import {twosum,link,comments} from './data'
+
+moment.locale('zh-cn')
 
 // const towxml = new Towxml()
-function Mine() {
-  const [data, setData] = useState(twosum)
-  const [commentsDatas, setCommentsDatas] = useState(comments)
+function Detail() {
+  const [data, setData] = useState({})
+  const [commentsDatas, setCommentsDatas] = useState([])
   const [info, setInfo] = useState(()=>{
     return getCurrentInstance().router.params
   })
@@ -23,9 +26,7 @@ function Mine() {
 
       request({
         url: `${api.issues}/${info.num}`,
-        header: {
-          'content-type': 'application/json'
-        },
+        header,
         success: function (res) {
           console.log(res.data)
           setData(res.data)
@@ -34,9 +35,7 @@ function Mine() {
 
       request({
         url: `${api.issues}/${info.num}/comments`,
-        header: {
-          'content-type': 'application/json'
-        },
+        header,
         success: function (res) {
           console.log(res.data)
           setCommentsDatas(res.data)
@@ -46,13 +45,13 @@ function Mine() {
 
   }, [info])
 
-  const {created_at,title,body,user:{avatar_url,login}}=data
+  const {created_at,title,body,user}=data
   return (
     <View>
          <AtCard
-          note={created_at}
-          title={login}
-          thumb={avatar_url}
+          note={moment(new Date(created_at)).format('LLL')}
+          title={user?.login}
+          thumb={user?.avatar_url}
           className="comment-card"
         >
           <wemark md={`**${title}** \r\n ---`} link highlight type='wemark' />
@@ -79,4 +78,4 @@ function Mine() {
 }
 
 
-export default Mine;
+export default Detail;

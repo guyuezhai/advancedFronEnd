@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {request,navigateTo,getCurrentInstance} from '@tarojs/taro';
 import _ from 'lodash'
 import { View,} from '@tarojs/components'
-import api from '../../api'
+import {api ,header}from '../../api'
 import Panel from '../panel'
 import './index.scss'
 import data from './data'
@@ -18,9 +18,7 @@ function Mine() {
     }
     request({
       url,
-      header: {
-        'content-type': 'application/json'
-      },
+      header,
       success: function (res) {
         console.log(res.data)
         setDataList(res.data)

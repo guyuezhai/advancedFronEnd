@@ -8,6 +8,7 @@ function Post() {
   useEffect(() => {
     getUserInfo({
       success: function(res) {
+        console.log('user-info',res)
         setUser(res.userInfo)
       }
     })

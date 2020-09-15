@@ -2,6 +2,12 @@ module.exports = {
   env: {
     NODE_ENV: '"production"'
   },
+  terser:{
+    enable:true,//开启js压缩
+  },
+  csso:{
+    enable:true,//开启css压缩
+  },
   defineConstants: {
   },
   mini: {},
