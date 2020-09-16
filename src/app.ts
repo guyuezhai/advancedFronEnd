@@ -25,7 +25,7 @@ import './app.scss'
 // });
 // const store = dvaApp.getStore();
 // console.log('dva----',dva,store)
-// import configStore from './store'
+import configStore from './store'
 // const store = configStore()
 
 class App extends Component {
