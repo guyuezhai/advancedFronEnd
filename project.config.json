@@ -44,6 +44,12 @@
 			],
 			"@/package": [
 				"./package.json"
+      ],
+      "@/models/*": [
+				"./src/models/*"
+      ],
+      "@/services/*": [
+				"./src/services/*"
 			],
 			"@/project": [
 				"./project.config.json"

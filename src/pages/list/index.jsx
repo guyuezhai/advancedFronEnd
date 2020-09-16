@@ -2,12 +2,12 @@ import React,{useEffect,useState} from 'react';
 import {request,navigateTo,getCurrentInstance} from '@tarojs/taro';
 import _ from 'lodash'
 import { View,} from '@tarojs/components'
-import {api ,header}from '../../api'
+import {api ,header}from '@/utils/api'
 import Panel from '../panel'
 import './index.scss'
-import data from './data'
+// import data from './data'
 function Mine() {
-  const [dataList, setDataList] = useState(data)
+  const [dataList, setDataList] = useState([])
   const [info, setInfo] = useState(()=>{
     return getCurrentInstance().router.params
   })

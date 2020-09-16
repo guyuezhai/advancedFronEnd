@@ -6,7 +6,7 @@ import 'moment/locale/zh-cn'
 import _ from 'lodash'
 // import Towxml  from 'towxml'
 import { View,} from '@tarojs/components'
-import {api ,header}from '../../api'
+import {api ,header}from '@/utils/api'
 import './index.scss'
 // import {twosum,link,comments} from './data'
 

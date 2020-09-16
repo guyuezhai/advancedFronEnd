@@ -10,9 +10,29 @@ const config = {
   },
   alias:{
     '@/components':path.resolve(__dirname,'..','src/components'),
+    '@/utils':path.resolve(__dirname,'..','src/utils'),
+    '@/models':path.resolve(__dirname,'..','src/models'),
+    '@/services':path.resolve(__dirname,'..','src/services'),
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  babel: {
+    sourceMap: true,
+    presets: [
+    [
+    'env',
+    {
+    modules: false
+    }
+    ]
+    ],
+    plugins: [
+    'transform-class-properties',
+    'transform-decorators-legacy',
+    'transform-object-rest-spread'
+    ]
+
+  },
   plugins: [],
   defineConstants: {
   },
