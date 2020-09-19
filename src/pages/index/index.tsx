@@ -1,27 +1,16 @@
 import React, { Component,useEffect,useState,useMemo} from 'react'
-import {request,navigateTo,} from '@tarojs/taro';
+import {navigateTo,} from '@tarojs/taro';
 import { View, Text ,Swiper, SwiperItem ,Image} from '@tarojs/components'
-import { AtButton,AtGrid,AtToast} from 'taro-ui'
+import { AtGrid,AtToast} from 'taro-ui'
 import _ from 'lodash'
-// import labels from './data'
-import {api,header }from '@/utils/api'
+import { connect } from 'react-redux';
 import './index.scss'
-const labelImgMap={
-  react:'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-
-}
-function Index(){
-  const [labelList, setLabelList] = useState([])
+function Index({dispatch,home}){
   const [isOpened, setIsOpened] = useState(false)
   useEffect(() => {
-    request({
-      url: api.labels,
-      header,
-      success: function (res) {
-        console.log(res.data)
-        setLabelList(res.data)
-      }
-    })
+      dispatch({
+        type: 'home/getLabels',
+      });
   }, [])
   const goToDetail=(item,index)=>{
     let {value}=item
@@ -30,13 +19,13 @@ function Index(){
     })
   }
   const data=useMemo(() => {
-    return _.map(labelList,(o)=>{
+    return _.map(home.labels,(o)=>{
       return{
         image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
         value:o.name
       }
     })
-  }, [labelList])
+  }, [home.labels])
   return (
     <View>
       <AtToast isOpened={isOpened} text="后续开发中，敬请期待！" icon="loading-2"></AtToast>
@@ -70,4 +59,5 @@ function Index(){
 
   )
 }
-export default  Index
+export default  connect(({home})=>({home}))(Index)
+

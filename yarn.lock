@@ -1631,14 +1631,6 @@
     react-reconciler "^0.23.0"
     scheduler "^0.17.0"
 
-"@tarojs/redux@^2.2.10":
-  version "2.2.10"
-  resolved "https://registry.npm.taobao.org/@tarojs/redux/download/@tarojs/redux-2.2.10.tgz?cache=0&sync_timestamp=1596178329361&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Fredux%2Fdownload%2F%40tarojs%2Fredux-2.2.10.tgz#63b1ee7cd123c17aa67d71d6d5ae8ce6ef6eacea"
-  integrity sha1-Y7HufNEjwXqmfXHW1a6M5u9urOo=
-  dependencies:
-    "@tarojs/taro" "^2.2.10"
-    "@tarojs/utils" "^2.2.10"
-
 "@tarojs/router@3.0.8":
   version "3.0.8"
   resolved "https://registry.npm.taobao.org/@tarojs/router/download/@tarojs/router-3.0.8.tgz?cache=0&sync_timestamp=1599210629651&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40tarojs%2Frouter%2Fdownload%2F%40tarojs%2Frouter-3.0.8.tgz#65d52f6c4b77c03d45dedcd6d6fcd9ccb4c5d8cd"
@@ -1714,13 +1706,6 @@
     "@tarojs/api" "3.0.8"
     "@tarojs/taro-h5" "3.0.8"
 
-"@tarojs/taro@^2.2.10":
-  version "2.2.13"
-  resolved "https://registry.npm.taobao.org/@tarojs/taro/download/@tarojs/taro-2.2.13.tgz#1e4702a60a36c9ad4725809a170d6b739b73171b"
-  integrity sha1-HkcCpgo2ya1HJYCaFw1rc5tzFxs=
-  dependencies:
-    "@tarojs/utils" "2.2.13"
-
 "@tarojs/taroize@3.0.8":
   version "3.0.8"
   resolved "https://registry.npm.taobao.org/@tarojs/taroize/download/@tarojs/taroize-3.0.8.tgz#2b52138980a3aa78b45e775e3caeacdbd9067678"
@@ -1769,16 +1754,6 @@
     lodash "^4.17.5"
     prettier "^1.14.2"
     typescript "^3.2.2"
-
-"@tarojs/utils@2.2.13":
-  version "2.2.13"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.2.13.tgz#ac452d0743a6dee494ce8bfe529f904aa3e2c6ad"
-  integrity sha1-rEUtB0Om3uSUzov+Up+QSqPixq0=
-
-"@tarojs/utils@^2.2.10":
-  version "2.2.10"
-  resolved "https://registry.npm.taobao.org/@tarojs/utils/download/@tarojs/utils-2.2.10.tgz#ddf82a77aeccfc315c2fb78b3d1c079860aed350"
-  integrity sha1-3fgqd67M/DFcL7eLPRwHmGCu01A=
 
 "@tarojs/webpack-runner@3.0.8":
   version "3.0.8"

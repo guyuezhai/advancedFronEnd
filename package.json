@@ -39,7 +39,6 @@
     "@tarojs/cli": "3.0.8",
     "@tarojs/components": "3.0.8",
     "@tarojs/react": "3.0.8",
-    "@tarojs/redux": "^2.2.10",
     "@tarojs/runtime": "3.0.8",
     "@tarojs/taro": "3.0.8",
     "@types/react-redux": "^7.1.9",

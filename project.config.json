@@ -44,11 +44,11 @@
 			],
 			"@/package": [
 				"./package.json"
-      ],
-      "@/models/*": [
+			],
+			"@/models/*": [
 				"./src/models/*"
-      ],
-      "@/services/*": [
+			],
+			"@/services/*": [
 				"./src/services/*"
 			],
 			"@/project": [

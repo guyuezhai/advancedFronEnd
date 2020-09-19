@@ -7,8 +7,12 @@ const header={
   'content-type': 'application/json',
   'Authorization': `token ${token}`
 }
+const baseUrl = '';
+const noConsole=false
 export {
   api,
   header,
-  token
+  token,
+  baseUrl,
+  noConsole
 }
