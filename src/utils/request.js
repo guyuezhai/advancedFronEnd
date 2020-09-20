@@ -8,7 +8,7 @@ export default (options = { method: 'GET', data: {} }) => {
   }
   return Taro.request({
     url: baseUrl + options.url,
-    data: options.data,
+    data: {...options.data,access_tokrn:token},
     headers: header,
     method: options.method.toUpperCase(),
   }).then((res) => {

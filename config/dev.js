@@ -3,6 +3,7 @@ module.exports = {
     NODE_ENV: '"development"'
   },
   defineConstants: {
+    REPO_ADDRESS:JSON.stringify('gitee')
   },
   mini: {},
   h5: {

@@ -9,6 +9,7 @@ module.exports = {
     enable:true,//开启css压缩
   },
   defineConstants: {
+    REPO_ADDRESS:JSON.stringify('github')
   },
   mini: {},
   h5: {

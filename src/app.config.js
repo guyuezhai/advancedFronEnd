@@ -4,7 +4,8 @@ export default {
     'pages/list/index',
     'pages/mine/index',
     'pages/post/index',
-    'pages/detail/index'
+    'pages/detail/index',
+    'pages/depos/index'
   ],
   tabBar: {
     list: [
@@ -13,6 +14,12 @@ export default {
         text: '首页',
         'iconPath': './images/home@2x.png',
         'selectedIconPath': './images/home_s@2x.png',
+      },
+      {
+        pagePath: 'pages/depos/index',
+        text: '题库',
+        'iconPath': './images/service_n@2x.png',
+        'selectedIconPath': './images/service_s@2x.png',
       },
       {
         pagePath: 'pages/mine/index',

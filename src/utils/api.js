@@ -1,18 +1,35 @@
-const api={
-  labels:'https://api.github.com/repos/guyuezhai/interviewSummary/labels',
-  issues:'https://api.github.com/repos/guyuezhai/interviewSummary/issues'
+const githubPath={
+  labels:'/labels',
+  issues:'/issues'
 }
-const token='85e394b92c91b95da483c6f75161107a9fd32ad0'
-const header={
+const giteePath={
+  labels:'/labels',
+  issues:'/issues'
+}
+export const  baseUrl =(()=>{
+  if(REPO_ADDRESS=='gitee') return 'https://gitee.com/api/v5/repos/GuYueFei/interviewSummary'
+  return 'https://api.github.com/repos/guyuezhai/interviewSummary'
+})()
+export const  api =(()=>{
+  if(REPO_ADDRESS=='gitee') return giteePath;
+  return githubPath
+})()
+const headerCom={
   'content-type': 'application/json',
-  'Authorization': `token ${token}`
+  // 'Authorization': `token ${token}`
 }
-const baseUrl = '';
-const noConsole=false
-export {
-  api,
-  header,
-  token,
-  baseUrl,
-  noConsole
-}
+
+export const header =(()=>{
+  if(REPO_ADDRESS=='gitee') return headerCom;
+  return headerCom
+})()
+const github_token='85e394b92c91b95da483c6f75161107a9fd32ad0';
+const gitee_token='cee6960a8c268136de4aff003690a480';
+
+export const token =(()=>{
+  if(REPO_ADDRESS=='gitee') return gitee_token;
+  return github_token
+})()
+
+export const noConsole=false
+
