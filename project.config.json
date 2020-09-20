@@ -48,6 +48,9 @@
 			"@/models/*": [
 				"./src/models/*"
 			],
+			"@/images/*": [
+				"./src/images/*"
+			],
 			"@/services/*": [
 				"./src/services/*"
 			],

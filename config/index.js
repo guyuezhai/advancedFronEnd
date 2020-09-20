@@ -1,4 +1,5 @@
 const path = require('path')
+const Config = require('webpack-chain');
 const config = {
   projectName: 'taroapp',
   date: '2020-9-5',
@@ -13,23 +14,23 @@ const config = {
     '@/utils':path.resolve(__dirname,'..','src/utils'),
     '@/models':path.resolve(__dirname,'..','src/models'),
     '@/services':path.resolve(__dirname,'..','src/services'),
+    '@/images':path.resolve(__dirname,'..','src/images'),
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
   babel: {
     sourceMap: true,
     presets: [
-    [
-    'env',
-    {
-    modules: false
-    }
-    ]
+      ['env',
+        {
+          modules: false
+        }
+      ]
     ],
     plugins: [
-    'transform-class-properties',
-    'transform-decorators-legacy',
-    'transform-object-rest-spread'
+      'transform-class-properties',
+      'transform-decorators-legacy',
+      'transform-object-rest-spread',
     ]
 
   },
@@ -68,7 +69,7 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
-    }
+    },
   },
   weapp:{
     compile:{

@@ -4,6 +4,7 @@ import { View, Text ,Swiper, SwiperItem ,Image} from '@tarojs/components'
 import { AtGrid,AtToast} from 'taro-ui'
 import _ from 'lodash'
 import { connect } from 'react-redux';
+import * as images from '@/images'
 import './index.scss'
 function Index({dispatch,home}){
   const [isOpened, setIsOpened] = useState(false)
@@ -20,9 +21,10 @@ function Index({dispatch,home}){
   }
   const data=useMemo(() => {
     return _.map(home.labels,(o)=>{
+      let {name}=o
       return{
-        image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-        value:o.name
+        image: images[name],
+        value:name
       }
     })
   }, [home.labels])
