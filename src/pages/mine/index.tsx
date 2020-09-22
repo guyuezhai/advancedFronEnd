@@ -1,37 +1,36 @@
 import React,{useEffect,useState} from 'react';
-import {getUserInfo,getWeRunData} from '@tarojs/taro';
+import {getUserInfo,getWeRunData,createUserInfoButton,cloud,getEnv,ENV_TYPE,} from '@tarojs/taro';
 import { View, Text } from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
+import {useSelector} from 'react-redux'
+import LoginButton from '@/components/LoginButton'
+import {isEmpty} from 'lodash'
 import './index.scss'
+
 function Post() {
-  const [user, setUser] = useState({})
+  const userInfo = useSelector(state => state.user.userInfo)
+  const isLogin= (!userInfo || isEmpty(userInfo))?false:true;
   useEffect(() => {
-    getUserInfo({
-      success: function(res) {
-        console.log('user-info',res)
-        setUser(res.userInfo)
-      }
-    })
-    getWeRunData({
-      success: function(res) {
-        const encryptedData = res.encryptedData
-        // 或拿 cloudID 通过云调用直接获取开放数据
-        const cloudID = res.cloudID
-        console.log(res)
-      }
-    })
+    const WeappEnv = getEnv() === ENV_TYPE.WEAPP;
+    console.log('Taro.getEnv()',getEnv(),ENV_TYPE.WEAPP,WeappEnv)
+    if(WeappEnv){ //微信小程序环境
+      cloud.init() //云函数初始化
+    }
   }, [])
-  const {gender,nickName,avatarUrl}=user
+  const {gender,nickName,avatar}=userInfo
   const genderArr=[nickName,"小哥哥","小姐姐"]
   return (
     <View className='user'>
       <View className='user-center'>
-        <AtAvatar circle image={avatarUrl}></AtAvatar>
+        <AtAvatar circle image={avatar}></AtAvatar>
         <br/>
         <View className='name'>{nickName}</View>
         <View className='tip'>{
           `欢迎${genderArr[gender]}加入前端修仙之路！`
         }</View>
+        {
+          isLogin?'':(<LoginButton></LoginButton>)
+        }
     </View>
 
     </View>

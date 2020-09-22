@@ -2,7 +2,8 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "taroapp",
 	"description": "",
-	"appid": "wxbc023a3152fd7e15",
+  "appid": "wxbc023a3152fd7e15",
+  "cloudfunctionRoot": "functions/",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -59,5 +60,6 @@
 			]
 		}
 	},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {}
 }
