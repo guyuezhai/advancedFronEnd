@@ -43,7 +43,7 @@ function Detail({dispatch,detail}) {
           thumb={theIssues?.user?.avatar_url}
           className="comment-card"
         >
-          <wemark md={`**${theIssues?.title}** \r\n ---`} link highlight type='wemark' />
+          <wemark md={`${theIssues?.title} \r\n ---`} link highlight type='wemark' />
           <wemark md={theIssues?.body} link highlight type='wemark' />
         </AtCard>
         {

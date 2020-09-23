@@ -1,20 +1,38 @@
 import React,{useEffect,useState} from 'react';
-import {getUserInfo,getWeRunData,createUserInfoButton,cloud,getEnv,ENV_TYPE,} from '@tarojs/taro';
+import {getUserInfo,getWeRunData,createUserInfoButton,cloud,getEnv,ENV_TYPE,getStorage} from '@tarojs/taro';
 import { View, Text } from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import LoginButton from '@/components/LoginButton'
 import {isEmpty} from 'lodash'
 import './index.scss'
 
-function Post() {
+function Mine() {
   const userInfo = useSelector(state => state.user.userInfo)
+  const dispatch = useDispatch()
   const isLogin= (!userInfo || isEmpty(userInfo))?false:true;
   useEffect(() => {
     const WeappEnv = getEnv() === ENV_TYPE.WEAPP;
-    console.log('Taro.getEnv()',getEnv(),ENV_TYPE.WEAPP,WeappEnv)
     if(WeappEnv){ //微信小程序环境
       cloud.init() //云函数初始化
+    }
+    async function getUserInfo() {
+      try {
+        const {data}= await getStorage({key:'userInfo'})
+        dispatch({
+          type:'user/saveUserInfo',
+          payload:{
+            userInfo:data
+          }
+        })
+
+      } catch (error) {
+        console.log('获取失败：---',error)
+      }
+
+    }
+    if(!isLogin){
+      getUserInfo()
     }
   }, [])
   const {gender,nickName,avatar}=userInfo
@@ -37,4 +55,4 @@ function Post() {
   )
 }
 
-export default Post;
+export default Mine;

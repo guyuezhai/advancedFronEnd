@@ -9,8 +9,9 @@ function LoginButton(props){
 
   async function onGetUserInfo(e) {
     setIsLogin(true)
-    const { avatarUrl, nickName } = e.detail.userInfo
-    const userInfo = { avatar: avatarUrl, nickName }
+    const { avatarUrl, nickName ,gender,province,city} = e.detail.userInfo
+    console.log(e.detail.userInfo)
+    const userInfo = { avatar: avatarUrl, nickName,gender,province,city}
     dispatch({
       type:'user/login',
       payload:{
