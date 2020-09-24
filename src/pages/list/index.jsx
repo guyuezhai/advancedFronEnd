@@ -1,12 +1,13 @@
-import React,{useEffect,useState,} from 'react';
+import React,{useEffect} from 'react';
 import {getCurrentInstance} from '@tarojs/taro';
 import _ from 'lodash'
 import { View,} from '@tarojs/components'
-import {connect} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import Panel from '../panel'
 import './index.scss'
-function List({dispatch,list}) {
-  const {labelIssues}=list
+function List() {
+  const dispatch = useDispatch()
+  const {labelIssues}= useSelector(state => state.list)
   const info = getCurrentInstance().router.params
   useEffect(() => {
     if(info){
@@ -36,4 +37,4 @@ function List({dispatch,list}) {
 
   )
 }
-export default connect(({list})=>({list}))(List)
+export default List

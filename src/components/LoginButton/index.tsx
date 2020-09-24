@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Button,} from "@tarojs/components";
-import {useDispatch} from 'react-redux'
+import {useDispatch,} from 'react-redux'
 import  "./index.scss";
 
 function LoginButton(props){

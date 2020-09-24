@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
-import {getUserInfo,getWeRunData,createUserInfoButton,cloud,getEnv,ENV_TYPE,getStorage} from '@tarojs/taro';
-import { View, Text } from '@tarojs/components'
+import {cloud,getEnv,ENV_TYPE,getStorage} from '@tarojs/taro';
+import { View, } from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
 import {useSelector,useDispatch} from 'react-redux'
 import LoginButton from '@/components/LoginButton'
@@ -44,7 +44,7 @@ function Mine() {
         <br/>
         <View className='name'>{nickName}</View>
         <View className='tip'>{
-          `欢迎${genderArr[gender]}加入前端修仙之路！`
+          `欢迎${genderArr[gender]?genderArr[gender]:''}加入前端修仙之路！`
         }</View>
         {
           isLogin?'':(<LoginButton></LoginButton>)

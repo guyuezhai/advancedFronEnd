@@ -5,7 +5,8 @@ export default {
     'pages/mine/index',
     'pages/post/index',
     'pages/detail/index',
-    'pages/depos/index'
+    'pages/depos/index',
+    'pages/article/index'
   ],
   tabBar: {
     list: [
@@ -32,7 +33,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: '前端进阶',
+    navigationBarTitleText: '前端修仙之路',
     navigationBarTextStyle: 'black'
   }
 }

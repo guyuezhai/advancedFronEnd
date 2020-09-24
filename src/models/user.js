@@ -10,16 +10,16 @@ export default {
       *login(_,{call,put,select}){
           const res = yield call(userApi.login,_.payload.userInfo)
           if(!res) return
-          setStorage({
-            key:'userInfo',
-            data:res
-          })
           yield put({
             type:'save',
             payload:{
               userInfo: res
             }
-        })
+          })
+          setStorage({
+            key:'userInfo',
+            data:res
+          })
       },
     },
 

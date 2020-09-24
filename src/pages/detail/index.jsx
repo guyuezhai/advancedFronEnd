@@ -4,16 +4,17 @@ import { AtCard,AtAvatar} from "taro-ui"
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 import _ from 'lodash'
-import {connect} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 // import Towxml  from 'towxml'
-import { View,} from '@tarojs/components'
+import { View,Text} from '@tarojs/components'
 import './index.scss'
 
 moment.locale('zh-cn')
 
 // const towxml = new Towxml()
-function Detail({dispatch,detail}) {
-  const {theIssues,comments}=detail
+function Detail() {
+  const dispatch = useDispatch()
+  const {theIssues,comments} = useSelector(state => state.detail)
   const info = getCurrentInstance().router.params
 
   //获取issues数据
@@ -43,7 +44,8 @@ function Detail({dispatch,detail}) {
           thumb={theIssues?.user?.avatar_url}
           className="comment-card"
         >
-          <wemark md={`${theIssues?.title} \r\n ---`} link highlight type='wemark' />
+          {/* <wemark md={`${theIssues?.title} \r\n ---`} link highlight type='wemark' /> */}
+          <Text className='detail-title'>{theIssues?.title}</Text>
           <wemark md={theIssues?.body} link highlight type='wemark' />
         </AtCard>
         {
@@ -51,7 +53,7 @@ function Detail({dispatch,detail}) {
 
             let {body,user:{avatar_url,login}}=o;
             return <AtCard
-            note={!_.isEmpty(theIssues) && theIssues.created_at}
+            note={moment(new Date(o.created_at)).format('LLL')}
             title={login}
             thumb={avatar_url}
             className="comment-card"
@@ -67,4 +69,4 @@ function Detail({dispatch,detail}) {
 }
 
 
-export default connect(({detail})=>({detail}))(Detail);
+export default Detail;

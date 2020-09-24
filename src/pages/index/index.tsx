@@ -1,13 +1,14 @@
-import React, { Component,useEffect,useState,useMemo} from 'react'
+import React, { useEffect,useMemo} from 'react'
 import {navigateTo,} from '@tarojs/taro';
-import { View, Text ,Swiper, SwiperItem ,Image} from '@tarojs/components'
-import { AtGrid,AtToast} from 'taro-ui'
+import { View, Swiper, SwiperItem ,Image} from '@tarojs/components'
+import { AtGrid,} from 'taro-ui'
 import _ from 'lodash'
-import { connect } from 'react-redux';
+import { useDispatch,useSelector} from 'react-redux';
 import * as images from '@/images'
 import './index.scss'
-function Index({dispatch,home}){
-  const [isOpened, setIsOpened] = useState(false)
+function Index(){
+  const dispatch = useDispatch()
+  const home = useSelector(state => state.home)
   useEffect(() => {
       dispatch({
         type: 'home/getLabels',
@@ -30,14 +31,17 @@ function Index({dispatch,home}){
   }, [home.labels])
   return (
     <View>
-      <AtToast isOpened={isOpened} text="后续开发中，敬请期待！" icon="loading-2"></AtToast>
       <Swiper
         className='swiper-container'
         indicatorColor='#999'
         indicatorActiveColor='#333'
         vertical={false}
         circular
-        onClick={()=>setIsOpened(true)}
+        onClick={()=>{
+          navigateTo({
+            url:'/pages/article/index'
+          })
+        }}
         indicatorDots
         autoplay>
           <SwiperItem>
@@ -56,10 +60,11 @@ function Index({dispatch,home}){
             </View>
         </SwiperItem>
         </Swiper>
+
       <AtGrid columnNum={3}	 data={data} onClick={goToDetail}/>
     </View>
 
   )
 }
-export default  connect(({home})=>({home}))(Index)
+export default  Index
 
