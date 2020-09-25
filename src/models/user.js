@@ -5,6 +5,7 @@ export default {
     namespace:'user',
     state:{
         userInfo:{},
+        runData:{},
     },
     effects:{
       *login(_,{call,put,select}){
@@ -21,6 +22,16 @@ export default {
             data:res
           })
       },
+      *getRunData(_,{call,put}){
+        const res = yield call(userApi.getRunData,_.payload.cloudID)
+          if(!res) return
+          yield put({
+            type:'save',
+            payload:{
+              runData: res
+            }
+          })
+      }
     },
 
     reducers:{
