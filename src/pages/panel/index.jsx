@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AtIcon } from 'taro-ui'
 import { View } from "@tarojs/components";
 import {request,navigateTo} from '@tarojs/taro';
-import _ from 'lodash'
+import {map} from 'lodash'
 
 import  "./index.scss";
 
@@ -25,7 +25,7 @@ function Panel(props){
       <View className="panel-footer">
         <View className="panel-label">
           {
-            _.map(labels,(o)=>{
+            map(labels,(o)=>{
               let {name,color,node_id}=o
             return <View className='label-item' style={{backgroundColor:"#"+color}}>{name}</View>
             })

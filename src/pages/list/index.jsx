@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import {getCurrentInstance} from '@tarojs/taro';
-import _ from 'lodash'
+import {map} from 'lodash'
 import { View,} from '@tarojs/components'
 import {useDispatch,useSelector} from 'react-redux'
 import Panel from '../panel'
@@ -23,7 +23,7 @@ function List() {
   return (
     <View>
       {
-        _.map(labelIssues,(o,i)=>{
+        map(labelIssues,(o,i)=>{
           return (
           <Panel
             data={o}

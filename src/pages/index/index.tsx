@@ -2,7 +2,7 @@ import React, { useEffect,useMemo} from 'react'
 import {navigateTo,} from '@tarojs/taro';
 import { View, Swiper, SwiperItem ,Image} from '@tarojs/components'
 import { AtGrid,} from 'taro-ui'
-import _ from 'lodash'
+import {map} from 'lodash'
 import { useDispatch,useSelector} from 'react-redux';
 import * as images from '@/images'
 import './index.scss'
@@ -21,7 +21,7 @@ function Index(){
     })
   }
   const data=useMemo(() => {
-    return _.map(home.labels,(o)=>{
+    return map(home.labels,(o)=>{
       let {name}=o
       return{
         image: images[name],

@@ -1,5 +1,4 @@
 const path = require('path')
-const Config = require('webpack-chain');
 const config = {
   projectName: 'taroapp',
   date: '2020-9-5',
@@ -74,7 +73,8 @@ const config = {
   weapp:{
     compile:{
       exclude:[
-        'src/wemark/remarkable.js'
+        'src/wemark/remarkable.js',
+        'src/components/ec-canvas/echarts.js'
       ]
     }
   },

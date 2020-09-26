@@ -1,3 +1,4 @@
+
 module.exports = {
   env: {
     NODE_ENV: '"production"'
@@ -11,7 +12,11 @@ module.exports = {
   defineConstants: {
     REPO_ADDRESS:JSON.stringify('gitee')
   },
-  mini: {},
+  mini: {
+    webpackChain (chain, webpack) {
+      chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+    }
+  },
   h5: {
     /**
      * 如果h5端编译后体积过大，可以使用webpack-bundle-analyzer插件对打包体积进行分析。

@@ -3,7 +3,7 @@ import {navigateTo,} from '@tarojs/taro';
 import { View, } from '@tarojs/components'
 import { useSelector } from 'react-redux';
 import TimeLine from '@/components/TimeLine';
-import _ from 'lodash'
+import {map} from 'lodash'
 import './index.scss'
 
 function Depos(){
@@ -15,7 +15,7 @@ function Depos(){
     })
   }
   const data=useMemo(() => {
-    return _.map(labels,(o)=>{
+    return map(labels,(o)=>{
       let {name,color}=o
       return {
         title: name,

@@ -42,6 +42,7 @@
     "@tarojs/runtime": "3.0.8",
     "@tarojs/taro": "3.0.8",
     "@types/react-redux": "^7.1.9",
+    "date-fns": "^2.16.1",
     "dva-core": "^2.0.2",
     "dva-loading": "^3.0.20",
     "lodash": "4.17.15",
@@ -71,6 +72,7 @@
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "stylelint": "9.3.0",
-    "typescript": "^3.7.0"
+    "typescript": "^3.7.0",
+    "webpack-bundle-analyzer": "^3.9.0"
   }
 }
