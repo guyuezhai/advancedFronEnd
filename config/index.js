@@ -39,8 +39,8 @@ const config = {
   copy: {
     patterns: [
       {
-        from:'src/wemark',
-        to:'dist/wemark'
+        from:'towxml',
+        to:'dist/towxml'
       }
     ],
     options: {
@@ -69,11 +69,13 @@ const config = {
         }
       }
     },
+    webpackChain (chain, webpack) {
+      chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+    }
   },
   weapp:{
     compile:{
       exclude:[
-        'src/wemark/remarkable.js',
         'src/components/ec-canvas/echarts.js'
       ]
     }

@@ -1,17 +1,17 @@
-import React,{useEffect,useState} from 'react';
-import {getCurrentInstance} from '@tarojs/taro';
+import React,{useEffect,useState,useMemo} from 'react';
+import {getApp, getCurrentInstance} from '@tarojs/taro';
 import { AtCard,AtAvatar} from "taro-ui"
-import moment from 'moment'
-import 'moment/locale/zh-cn'
 import {map,isEmpty} from 'lodash'
 import {useSelector,useDispatch} from 'react-redux'
-// import Towxml  from 'towxml'
 import { View,Text} from '@tarojs/components'
 import './index.scss'
 
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 moment.locale('zh-cn')
 
-// const towxml = new Towxml()
+import {genMarkdown} from '@/utils/util'
+
 function Detail() {
   const dispatch = useDispatch()
   const {theIssues,comments} = useSelector(state => state.detail)
@@ -33,8 +33,8 @@ function Detail() {
         }
       })
     }
-
   }, [info])
+
 
   return (
     <View>
@@ -44,9 +44,8 @@ function Detail() {
           thumb={theIssues?.user?.avatar_url}
           className="comment-card"
         >
-          {/* <wemark md={`${theIssues?.title} \r\n ---`} link highlight type='wemark' /> */}
           <Text className='detail-title'>{theIssues?.title}</Text>
-          <wemark md={theIssues?.body} link highlight type='wemark' />
+          <towxml nodes={genMarkdown(theIssues?.body)} />
         </AtCard>
         {
           map(comments,(o)=>{
@@ -59,6 +58,7 @@ function Detail() {
             className="comment-card"
           >
             <wemark md={body} link highlight type='wemark' />
+            <towxml nodes={genMarkdown(body)} />
           </AtCard>
           })
         }

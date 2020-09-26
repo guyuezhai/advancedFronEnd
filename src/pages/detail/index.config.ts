@@ -1,5 +1,5 @@
 export default{
   usingComponents:{
-    wemark:'../../wemark/wemark'
+    "towxml": '../../../towxml/towxml',
   }
 }

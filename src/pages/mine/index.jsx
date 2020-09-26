@@ -86,7 +86,7 @@ function Mine() {
       })
       var option = {
         title: {
-            // text: '运动步数',
+            text: '您近一个月的运动数据',
             // subtext: '数据来自微信运动'
         },
         tooltip: {

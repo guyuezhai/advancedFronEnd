@@ -3,7 +3,6 @@ export default {
     'pages/index/index',
     'pages/list/index',
     'pages/mine/index',
-    'pages/post/index',
     'pages/detail/index',
     'pages/depos/index',
     'pages/article/index'

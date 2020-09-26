@@ -13,9 +13,9 @@ module.exports = {
     REPO_ADDRESS:JSON.stringify('gitee')
   },
   mini: {
-    webpackChain (chain, webpack) {
-      chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
-    }
+    // webpackChain (chain, webpack) {
+    //   chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+    // }
   },
   h5: {
     /**

@@ -14,7 +14,6 @@ const store = dvaApp.getStore();
 console.log('store---',store)
 function App(props){
   const {children}=props
-
   return <Provider store={store}>{children}</Provider>
 }
 

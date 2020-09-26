@@ -9,7 +9,6 @@ import  "./index.scss";
 function Panel(props){
   const {data:{title,number,body,comments,labels,created_at},index,children}=props
   const goToDetail=(num)=>{
-    console.log('info----',num)
     navigateTo({
       url: `/pages/detail/index?num=${num}`
     })
@@ -20,7 +19,6 @@ function Panel(props){
         {`第${index}题：${title}`}
       </View>
       <View className="panel-body">
-        {/* <wemark md={body} link highlight type='wemark' /> */}
       </View>
       <View className="panel-footer">
         <View className="panel-label">

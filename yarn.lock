@@ -13153,13 +13153,6 @@ tough-cookie@^3.0.1:
     psl "^1.1.28"
     punycode "^2.1.1"
 
-towxml@^3.0.6:
-  version "3.0.6"
-  resolved "https://registry.npm.taobao.org/towxml/download/towxml-3.0.6.tgz#be779c5c51eb4bf014ab548d7889b1435246bc58"
-  integrity sha1-vnecXFHrS/AUq1SNeImxQ1JGvFg=
-  dependencies:
-    fs-extra "^8.1.0"
-
 tr46@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/tr46/download/tr46-1.0.1.tgz#a8b13fd6bfd2489519674ccde55ba3693b706d09"
