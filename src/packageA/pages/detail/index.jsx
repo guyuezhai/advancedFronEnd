@@ -5,12 +5,11 @@ import {map,isEmpty} from 'lodash'
 import {useSelector,useDispatch} from 'react-redux'
 import { View,Text} from '@tarojs/components'
 import './index.scss'
-
 import moment from 'moment'
 import 'moment/locale/zh-cn'
 moment.locale('zh-cn')
 
-import {genMarkdown} from '@/utils/util'
+import { genMarkdown } from '@/utils/util'
 
 function Detail() {
   const dispatch = useDispatch()
@@ -46,6 +45,7 @@ function Detail() {
         >
           <Text className='detail-title'>{theIssues?.title}</Text>
           <towxml nodes={genMarkdown(theIssues?.body)} />
+
         </AtCard>
         {
           map(comments,(o)=>{
@@ -57,7 +57,6 @@ function Detail() {
             thumb={avatar_url}
             className="comment-card"
           >
-            <wemark md={body} link highlight type='wemark' />
             <towxml nodes={genMarkdown(body)} />
           </AtCard>
           })

@@ -10,7 +10,7 @@ function Panel(props){
   const {data:{title,number,body,comments,labels,created_at},index,children}=props
   const goToDetail=(num)=>{
     navigateTo({
-      url: `/pages/detail/index?num=${num}`
+      url: `/packageA/pages/detail/index?num=${num}`
     })
   }
   return(

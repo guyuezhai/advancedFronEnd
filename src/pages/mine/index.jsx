@@ -3,7 +3,7 @@ import {cloud,getEnv,ENV_TYPE,getStorage,getWeRunData} from '@tarojs/taro';
 import { View, } from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
 import {useSelector,useDispatch} from 'react-redux'
-import  echarts from "@/components/ec-canvas/echarts";
+import  echarts from "../../components/ec-canvas/echarts";
 import LoginButton from '@/components/LoginButton';
 import {isEmpty,forEach} from 'lodash';
 import moment from 'moment'

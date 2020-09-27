@@ -1,4 +1,4 @@
-
+// const CompressionPlugin = require("compression-webpack-plugin")
 module.exports = {
   env: {
     NODE_ENV: '"production"'
@@ -14,7 +14,7 @@ module.exports = {
   },
   mini: {
     // webpackChain (chain, webpack) {
-    //   chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+    //   chain.plugin('compress').use(CompressionPlugin,[{test: /\.js$/,algorithm: 'gzip',minRatio: 0.8,deleteOriginalAssets: true}]);
     // }
   },
   h5: {

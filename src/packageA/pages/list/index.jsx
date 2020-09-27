@@ -3,8 +3,9 @@ import {getCurrentInstance} from '@tarojs/taro';
 import {map} from 'lodash'
 import { View,} from '@tarojs/components'
 import {useDispatch,useSelector} from 'react-redux'
-import Panel from '../panel'
+import Panel from '../../panel'
 import './index.scss'
+
 function List() {
   const dispatch = useDispatch()
   const {labelIssues}= useSelector(state => state.list)

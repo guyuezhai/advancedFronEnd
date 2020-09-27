@@ -1,4 +1,6 @@
 const path = require('path')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const config = {
   projectName: 'taroapp',
   date: '2020-9-5',
@@ -27,9 +29,15 @@ const config = {
       ]
     ],
     plugins: [
-      'transform-class-properties',
       'transform-decorators-legacy',
+      'transform-class-properties',
       'transform-object-rest-spread',
+      ['transform-runtime', {
+        "helpers": false,
+        "polyfill": false,
+        "regenerator": true,
+        "moduleName": 'babel-runtime'
+      }]
     ]
 
   },
@@ -39,9 +47,13 @@ const config = {
   copy: {
     patterns: [
       {
-        from:'towxml',
+        from:'src/towxml',
         to:'dist/towxml'
-      }
+      },
+      // {
+      //   from:'ec-canvas',
+      //   to:'dist/ec-canvas'
+      // }
     ],
     options: {
     }
@@ -69,14 +81,16 @@ const config = {
         }
       }
     },
-    webpackChain (chain, webpack) {
-      chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
-    }
+
+    // webpackChain (chain, webpack) {
+      // chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+      // chain.plugin('analyzer').use(BundleAnalyzerPlugin, [])
+    // }
   },
   weapp:{
     compile:{
       exclude:[
-        'src/components/ec-canvas/echarts.js'
+        // 'src/components/ec-canvas/echarts.js'
       ]
     }
   },

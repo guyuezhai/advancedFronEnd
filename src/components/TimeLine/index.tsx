@@ -1,7 +1,7 @@
 import React from 'react'
 import { View,} from "@tarojs/components";
 import {AtIcon} from 'taro-ui'
-import _ from 'lodash'
+import {map} from 'lodash'
 import  "./index.scss";
 
 function TimeLine(props){
@@ -9,7 +9,7 @@ function TimeLine(props){
   return(
     <View className="time-line">
       {
-        _.map(items,(o)=>{
+        map(items,(o)=>{
           let {title,extra='练习',content,color,icon}=o
           return <View className="time-cell">
             <AtIcon className="time-line-icon" value={icon} color={color} size='12'></AtIcon>
@@ -23,7 +23,7 @@ function TimeLine(props){
                   }
                 </View>
                 {
-                  _.map(content,(item)=>{
+                  map(content,(item)=>{
                     return <View className="time-content">{item}</View>
                   })
                 }

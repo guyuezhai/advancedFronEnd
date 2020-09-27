@@ -6,6 +6,7 @@ import {map} from 'lodash'
 import { useDispatch,useSelector} from 'react-redux';
 import * as images from '@/images'
 import './index.scss'
+
 function Index(){
   const dispatch = useDispatch()
   const home = useSelector(state => state.home)
@@ -17,7 +18,7 @@ function Index(){
   const goToDetail=(item,index)=>{
     let {value}=item
     navigateTo({
-      url: `/pages/list/index?labels=${value}`
+      url: `/packageA/pages/list/index?labels=${value}`
     })
   }
   const data=useMemo(() => {
@@ -39,11 +40,12 @@ function Index(){
         circular
         onClick={()=>{
           navigateTo({
-            url:'/pages/article/index'
+            url:'/packageA/pages/article/index'
           })
         }}
         indicatorDots
-        autoplay>
+        autoplay
+        >
           <SwiperItem>
             <View className='swiper'>
               <Image className='swiper-image' src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/584858b7a7ad4e9daba4d5c900aee2bc~tplv-k3u1fbpfcp-zoom-1.image"></Image>

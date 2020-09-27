@@ -11,7 +11,7 @@ function Depos(){
 
   const goToDetail=(value)=>{
     navigateTo({
-      url: `/pages/list/index?labels=${value}`
+      url: `/packageA/pages/list/index?labels=${value}`
     })
   }
   const data=useMemo(() => {

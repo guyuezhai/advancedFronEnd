@@ -1,11 +1,18 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/list/index',
-    'pages/mine/index',
-    'pages/detail/index',
     'pages/depos/index',
-    'pages/article/index'
+    'pages/mine/index',
+  ],
+  subpackages: [
+    {
+      "root": "packageA",
+      "pages": [
+        'pages/article/index',
+        'pages/detail/index',
+        'pages/list/index',
+      ]
+    }
   ],
   tabBar: {
     list: [
