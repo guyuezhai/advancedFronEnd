@@ -19,7 +19,7 @@ function Depos(){
       let {name,color}=o
       return {
         title: name,
-        content: ['共n题'],
+        content: ['来,一起学习'],
         color:`#${color}`,
         icon: 'check-circle',
         extra:'查看',

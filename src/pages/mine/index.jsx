@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import {cloud,getEnv,ENV_TYPE,getStorage,getWeRunData} from '@tarojs/taro';
-import { View, } from '@tarojs/components'
+import { View, Text} from '@tarojs/components'
 import { AtAvatar } from 'taro-ui'
 import {useSelector,useDispatch} from 'react-redux'
 import  echarts from "../../components/ec-canvas/echarts";
@@ -11,6 +11,7 @@ import 'moment/locale/zh-cn'
 import './index.scss'
 
 let chart = null;
+
 function initChart(canvas, width, height, dpr) {
   chart = echarts.init(canvas, null, {
     width: width,
@@ -87,7 +88,16 @@ function Mine() {
       var option = {
         title: {
             text: '您近一个月的运动数据',
-            // subtext: '数据来自微信运动'
+            subtext:'来源于微信运动',
+            textStyle:{
+              // textAlign:'center'
+              width:'100%',
+
+            },
+            subtextStyle:{
+              align:'center'
+            },
+            // textAlign:'center'
         },
         tooltip: {
             trigger: 'axis',
@@ -106,17 +116,16 @@ function Mine() {
             data: xdata
         },
         yAxis: {
-            // type: 'category',
-            // data: ydata
+
         },
         series: [
             {
-                // name: '2011年',
                 type: 'bar',
+                color: '#5570d4',
                 data: ydata
             },
         ]
-    };
+      };
 
       chart.setOption(option);
     }

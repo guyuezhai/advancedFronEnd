@@ -2,7 +2,7 @@ import React, { useEffect,useMemo} from 'react'
 import {navigateTo,} from '@tarojs/taro';
 import { View, Swiper, SwiperItem ,Image} from '@tarojs/components'
 import { AtGrid,} from 'taro-ui'
-import {map} from 'lodash'
+import {map,reject} from 'lodash'
 import { useDispatch,useSelector} from 'react-redux';
 import * as images from '@/images'
 import './index.scss'
@@ -22,8 +22,9 @@ function Index(){
     })
   }
   const data=useMemo(() => {
-    return map(home.labels,(o)=>{
+    return  map(reject(home.labels,o=>o.name=="网络"),(o)=>{
       let {name}=o
+      if(name==="网络") return
       return{
         image: images[name],
         value:name
@@ -46,6 +47,7 @@ function Index(){
         indicatorDots
         autoplay
         >
+
           <SwiperItem>
             <View className='swiper'>
               <Image className='swiper-image' src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/584858b7a7ad4e9daba4d5c900aee2bc~tplv-k3u1fbpfcp-zoom-1.image"></Image>
