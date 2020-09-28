@@ -82,10 +82,10 @@ const config = {
       }
     },
 
-    // webpackChain (chain, webpack) {
-      // chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
+    webpackChain (chain, webpack) {
+      chain.plugin('igonre').use(webpack.IgnorePlugin,[/^\.\/locale$/, /moment$/]);
       // chain.plugin('analyzer').use(BundleAnalyzerPlugin, [])
-    // }
+    }
   },
   weapp:{
     compile:{

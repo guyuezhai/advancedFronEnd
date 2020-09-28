@@ -5,7 +5,7 @@ Category: common, scripting
 Website: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 */
 
-export default function(hljs) {
+module.exports = function(hljs) {
   var FRAGMENT = {
     begin: '<>',
     end: '</>'
@@ -263,3 +263,4 @@ export default function(hljs) {
     illegal: /#(?!!)/
   };
 }
+

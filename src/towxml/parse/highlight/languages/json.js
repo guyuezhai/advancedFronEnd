@@ -5,8 +5,7 @@ Author: Ivan Sagalaev <maniac@softwaremaniacs.org>
 Website: http://www.json.org
 Category: common, protocols
 */
-
-export default function(hljs) {
+module.exports = function(hljs) {
   var LITERALS = {literal: 'true false null'};
   var ALLOWED_COMMENTS = [
     hljs.C_LINE_COMMENT_MODE,
@@ -50,3 +49,4 @@ export default function(hljs) {
     illegal: '\\S'
   };
 }
+

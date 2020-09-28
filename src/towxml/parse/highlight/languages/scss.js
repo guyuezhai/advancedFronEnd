@@ -5,7 +5,7 @@ Author: Kurt Emch <kurt@kurtemch.com>
 Website: https://sass-lang.com
 Category: common, css
 */
-export default function(hljs) {
+module.exports = function(hljs) {
   var AT_IDENTIFIER = '@[a-z-]+' // @font-face
   var AT_MODIFIERS = "and or not only"
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
@@ -120,3 +120,4 @@ export default function(hljs) {
     ]
   };
 }
+

@@ -1,7 +1,8 @@
 const config = require('../../config'),
     hljs = require('./highlight');
 config.highlight.forEach(item => {
-    hljs.registerLanguage(item, require(`./languages/${item}`).default);
+  let fun=require(`./languages/${item}`)
+    hljs.registerLanguage(item, fun);
 });
 
 module.exports = hljs;

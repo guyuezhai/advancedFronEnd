@@ -6,7 +6,7 @@ Website: http://lesscss.org
 Category: common, css
 */
 
-export default function(hljs) {
+module.exports = function(hljs) {
   var IDENT_RE        = '[\\w-]+'; // yes, Less identifiers may begin with a digit
   var INTERP_IDENT_RE = '(' + IDENT_RE + '|@{' + IDENT_RE + '})';
 
@@ -146,3 +146,4 @@ export default function(hljs) {
     contains: RULES
   };
 }
+

@@ -4,7 +4,7 @@ Category: common, css
 Website: https://developer.mozilla.org/en-US/docs/Web/CSS
 */
 
-export default function(hljs) {
+module.exports = function(hljs) {
   var FUNCTION_LIKE = {
     begin: /[\w-]+\(/, returnBegin: true,
     contains: [
@@ -130,3 +130,4 @@ export default function(hljs) {
     ]
   };
 }
+
