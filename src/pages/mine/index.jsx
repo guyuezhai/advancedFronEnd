@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {cloud,getEnv,ENV_TYPE,getStorage,getWeRunData} from '@tarojs/taro';
 import { View, Text} from '@tarojs/components'
-import { AtAvatar } from 'taro-ui'
+import { AtAvatar,AtToast } from 'taro-ui'
 import {useSelector,useDispatch} from 'react-redux'
 import  echarts from "../../components/ec-canvas/echarts";
 import LoginButton from '@/components/LoginButton';
@@ -25,9 +25,12 @@ function initChart(canvas, width, height, dpr) {
 
 function Mine() {
   const {userInfo,runData}= useSelector(state => state.user)
-  const [ec, setEc] = useState({
+  const [loading, setLoading] = useState(false)
+  const [ec, setEc] = useState(
+    {
       onInit: initChart
-  })
+    }
+  )
   const dispatch = useDispatch()
   // const {weRunData:{data:{stepInfoList}}}=runData
   const runSteps=runData?.weRunData?.data?.stepInfoList
@@ -76,6 +79,7 @@ function Mine() {
 
 
   useEffect(() => {
+    setLoading(true)
     if(runSteps){
 
       let ydata=[],xdata=[];
@@ -128,6 +132,8 @@ function Mine() {
       };
 
       chart.setOption(option);
+      setLoading(false)
+
     }
   }, [runSteps])
   const {gender,nickName,avatar}=userInfo
@@ -153,7 +159,8 @@ function Mine() {
             canvas-id='mychart-area'
             ec={ec}
           ></ec-canvas>
-        </view>
+    </view>
+    <AtToast isOpened={loading} text="奋力加载中..."  status="loading"></AtToast>
     </View>
   )
 }

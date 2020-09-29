@@ -4,26 +4,41 @@ export default {
     namespace:'list',
     state:{
         labelIssues:[],
-        issuesList:[]
+        issuesList:[],
+        loading:true,
     },
     effects:{
       *getIssuesList(_,{call,put,select}){
           const res = yield call(listApi.getIssuesList)
+          yield put({
+            type:'save',
+            payload:{
+              loading:true
+            }
+          })
           if(!res) return
           yield put({
             type:'save',
             payload:{
-              issuesList: res
+              issuesList: res,
+              loading:false
             }
         })
       },
       *getLabelIssues(_,{call,put,select}){
         const res = yield call(listApi.getLabelIssues,_.payload)
+        yield put({
+          type:'save',
+          payload:{
+            loading:true
+          }
+        })
         if(!res) return
         yield put({
           type:'save',
           payload:{
-            labelIssues: res
+            labelIssues: res,
+            loading:false
           }
       })
     },

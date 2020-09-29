@@ -1,9 +1,9 @@
 import React,{useEffect,useState,useMemo} from 'react';
 import {getApp, getCurrentInstance} from '@tarojs/taro';
-import { AtCard,AtAvatar} from "taro-ui"
+import { AtCard,AtAvatar,AtToast} from "taro-ui"
 import {map,isEmpty} from 'lodash'
 import {useSelector,useDispatch} from 'react-redux'
-import { View,Text} from '@tarojs/components'
+import { View,Text,} from '@tarojs/components'
 import './index.scss'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
@@ -13,9 +13,8 @@ import { genMarkdown } from '@/utils/util'
 
 function Detail() {
   const dispatch = useDispatch()
-  const {theIssues,comments} = useSelector(state => state.detail)
+  const {theIssues,comments,loading} = useSelector(state => state.detail)
   const info = getCurrentInstance().router.params
-
   //获取issues数据
   useEffect(() => {
     if(info.num!==undefined){
@@ -32,7 +31,7 @@ function Detail() {
         }
       })
     }
-  }, [info])
+  }, [info.num])
 
 
   return (
@@ -61,6 +60,7 @@ function Detail() {
           </AtCard>
           })
         }
+        <AtToast isOpened={loading} text="奋力加载中..."  status="loading"></AtToast>
     </View>
 
 

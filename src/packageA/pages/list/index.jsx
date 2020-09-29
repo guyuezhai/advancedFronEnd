@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import {getCurrentInstance} from '@tarojs/taro';
 import {map} from 'lodash'
+import { AtToast} from "taro-ui"
 import { View,} from '@tarojs/components'
 import {useDispatch,useSelector} from 'react-redux'
 import Panel from '../../panel'
@@ -8,7 +9,7 @@ import './index.scss'
 
 function List() {
   const dispatch = useDispatch()
-  const {labelIssues}= useSelector(state => state.list)
+  const {labelIssues,loading}= useSelector(state => state.list)
   const info = getCurrentInstance().router.params
   useEffect(() => {
     if(info){
@@ -19,7 +20,7 @@ function List() {
         }
       })
     }
-  }, [info])
+  }, [info.labels])
 
   return (
     <View>
@@ -34,6 +35,7 @@ function List() {
           )
         })
       }
+      <AtToast isOpened={loading} text="奋力加载中..."  status="loading"></AtToast>
     </View>
 
   )
